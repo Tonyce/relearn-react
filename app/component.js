@@ -115,20 +115,45 @@ class MyComponent extends React.Component {
 // export default MyComponent;
 
 export class Counter extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {count: props.initialCount};
-  }
-  tick() {
-    this.setState({count: this.state.count + 1});
-  }
-  render() {
-    return (
-      <div onClick={this.tick.bind(this)}>
-        Clicks: {this.state.count}
-      </div>
-    );
-  }
+	constructor(props) {
+		super(props);
+		this.state = {count: props.initialCount};
+	}
+
+	componentWillMount() {
+		console.log(`will Mount ${new Date().getTime()}`)
+	}
+
+	componentDidMount() {
+		console.log(`did Mount ${new Date().getTime()}`)
+	}
+
+	componentWillReceiveProps() {
+		console.log(`componentWillReceiveProps ${new Date().getTime()}`)	
+	}
+
+	shouldComponentUpdate(nextProps, nextState) {
+		console.log(`shouldComponentUpdate ${new Date().getTime()}`)	
+		console.log(nextProps, this.props)
+		console.log(nextProps.id !== this.props.id)
+		// return nextProps.id !== this.props.id;
+		return true
+	}
+
+	componentWillUnmount () {
+		console.log(`componentWillUnmount ${new Date().getTime()}`)		
+	}
+
+	tick() {
+		this.setState({count: this.state.count + 1});
+	}
+	render() {
+		return (
+			<div onClick={this.tick.bind(this)}>
+				Clicks: {this.state.count}
+			</div>
+		);
+	}
 }
 Counter.propTypes = { initialCount: React.PropTypes.number };
 Counter.defaultProps = { initialCount: 0 };
