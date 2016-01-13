@@ -11,13 +11,13 @@ module.exports = {
 		filename: "bundle.js"
 	},
 
-	plugins: [
-		new webpack.optimize.UglifyJsPlugin({
-		    compress: {
-		        warnings: false
-		    }
-		})
-    ],
+	// plugins: [
+	// 	new webpack.optimize.UglifyJsPlugin({
+	// 	    compress: {
+	// 	        warnings: false
+	// 	    }
+	// 	})
+ //    ],
 
 	module: {
 		loaders: [

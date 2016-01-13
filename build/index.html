@@ -1,8 +1,94 @@
 <html>
 	<head>
-		<meta charset="UTF-8"/>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>My ∞ React</title>
+		<style>
+			* {
+				margin: 0; padding: 0;
+				font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+			}
+
+			ul {
+				list-style:none;
+			}
+
+			ul li {
+				min-height: 50px;
+				width: 50%;
+				font-size: 1.2em;
+				cursor: pointer;
+				display: flex;
+      			/*justify-content: center;*/
+
+    			box-shadow: 0 1px 3px 0px #E4E3E3;
+      			margin: 15px 0;
+      			padding: 10px 0;
+
+		      	transition-property: background, border-radius, box-shadow, color, border-left;
+				transition-duration: 0.3s;
+				transition-timing-function: linear;
+				border-left: 2px solid #42A5F5;
+			}
+
+			ul li:hover {
+				box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12); 
+				border-left: 15px solid #42A5F5;
+				border-radius:0 5px 5px 0;
+			}
+
+			.blogContainer {
+				padding-left: 10px;
+			}
+
+			.content {
+
+				padding: 20px;
+			}
+
+			.shadow-bar {
+				min-height: 100px;
+			}
+			.my-bar {
+				color: #fff;
+				position: fixed;
+				padding-left: 20px;
+				width: 100%;
+				background: #00bcd4;
+			}
+
+			@media screen and (max-width: 1450px) {
+
+				ul li {
+					width: 70%;
+				}
+			}
+
+			@media screen and (max-width: 760px) {
+				.my-bar {
+					padding-left:10px
+				}
+
+				ul li {
+					width: 90%;
+
+				}
+			}
+
+			@media screen and (max-width: 460px) {
+				ul li {
+					width: 100%;
+					/*box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);*/
+				}
+
+				ul li:hover {
+					border-left: 2px solid #42A5F5;
+				}
+			}
+		</style>
 	</head>
 	<body>
+		<div id="app"></div>
 		<script src="bundle.js"></script>
 	</body>
 </html>

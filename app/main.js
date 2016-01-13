@@ -1,10 +1,17 @@
 'use strict';
 
 import React from 'react';
-import Hello from './component.js';
+import ReactDOM from 'react-dom';
 
-main();
+import Avatar from './component.js';
 
-function main() {
-    React.render(<Hello />, document.body);
-}
+ReactDOM.render(<Avatar username="pwh" />, document.getElementById('app'));
+
+
+// import MyBar from './components/my/self-bar';
+
+// ReactDOM.render(<MyBar 
+// 					// onLeftIconButtonTouchTap={this._handleClick} 
+// 					Height={300}>
+// 					TOP • 30
+// 				</MyBar>, document.getElementById('app'));
