@@ -13,20 +13,20 @@ class Main extends React.Component {
 
 	render() {
 		return (
-			<div>
+			// <div>
 				
-				<div className="card">
-					<h1>i am scheduler Main</h1>
-					<h1>i am scheduler Main</h1>
-					<h1>i am scheduler Main</h1>
-					<h1>i am scheduler Main</h1>
-					<a href="#">aaa</a>
-				</div>
+			// 	<div className="card">
+			// 		<h1>i am scheduler Main</h1>
+			// 		<h1>i am scheduler Main</h1>
+			// 		<h1>i am scheduler Main</h1>
+			// 		<h1>i am scheduler Main</h1>
+			// 		<a href="#">aaa</a>
+			// 	</div>
 
 				<div id="main-content">
 					fasdfa
 				</div>
-			</div>
+			// </div>
 		);
 	}
 }

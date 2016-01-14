@@ -15,6 +15,7 @@ import IndexMain from './components/index/Main';
 import AboutMain from './components/about/Main';
 import ScheduleMain from './components/schedule/Main';
 
+import Card from './components/Card';
 import Footer from './components/Footer';
 
 import './app.css'
@@ -46,9 +47,11 @@ class App extends React.Component {
 	render() {
 		let { header, main } = this.props;
 
-
-		main = <div id="main" key={this.props.location.pathname}>{main}</div>;
-		
+		// console.log(main)
+		// console.log(ma)
+		main = <div key={this.props.location.pathname}>{main}</div>;
+		// console.log(main.children)
+		let card = <div className="card" key={this.props.location.pathname}>{Card}</div>;
 
 		return (
 			<div>
@@ -57,14 +60,23 @@ class App extends React.Component {
 					{ header || <IndexHeader /> }
 				</header>
 
-			 	<ReactCSSTransitionGroup
-					component="div"
-					transitionName="example"
-					transitionEnterTimeout={500}
-					transitionLeaveTimeout={500}>
-						{ main || <IndexMain /> }
-				</ReactCSSTransitionGroup>
+				<div id="main">
+				 	<ReactCSSTransitionGroup
+						component="div"
+						transitionName="example"
+						transitionEnterTimeout={500}
+						transitionLeaveTimeout={500}>
+						{card}
+					</ReactCSSTransitionGroup>
 
+					<ReactCSSTransitionGroup
+						component="div"
+						transitionName="example-delay"
+						transitionEnterTimeout={500}
+						transitionLeaveTimeout={500}>
+						{main}
+					</ReactCSSTransitionGroup>
+				</div>
 				<Footer />
 				
 			</div>
