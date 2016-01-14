@@ -1,23 +1,399 @@
 'use strict';
 
-// import React from 'react';
-// import ReactDOM from 'react-dom';
-// import { Router, Route, Link } from 'react-router';
 
-// import Avatar from './component.js';
-
-// ReactDOM.render(<Avatar username="pwh" />, document.getElementById('app'));
+import React from 'react';
+import ReactDOM from 'react-dom';
+import { browserHistory, Router, Route, Link } from 'react-router';
 
 
-// import MyBar from './components/my/self-bar';
+import IndexHeader from './components/index/Header';
+import AboutHeader from './components/about/Header';
+import ScheduleHeader from './components/schedule/Header';
 
-// ReactDOM.render(<MyBar 
-// 					// onLeftIconButtonTouchTap={this._handleClick} 
-// 					Height={300}>
-// 					TOP • 30
-// 				</MyBar>, document.getElementById('app'));
+import IndexMain from './components/index/Main';
+import AboutMain from './components/about/Main';
+import ScheduleMain from './components/schedule/Main';
+
+import Footer from './components/Footer';
+
+import './app.css'
 
 
+class Nav extends React.Component {
+	
+	constructor() {
+		super();
+	}
+
+	render() {
+		return (
+			<nav>
+				<Link to="/">index</Link>
+				<Link to="/about">about</Link>
+				<Link to="/schedule">schedule</Link>
+			</nav>
+		);
+	}
+}
+
+class App extends React.Component {
+	render() {
+		const { header, main } = this.props
+		return (
+			<div>
+				<header>
+					<Nav />
+					{ header || <IndexHeader /> }
+				</header>
+				<div id="main">
+					{ main || <IndexMain /> }
+				</div>
+
+				
+				<Footer />
+				
+			</div>
+		)
+	}
+}
+
+ReactDOM.render((
+	<Router history={browserHistory}>
+		<Route path="/" component={App}>
+			<Route path="about" components={{ header: AboutHeader, main: AboutMain }}></Route>
+			<Route path="Schedule" components={{ header: ScheduleHeader, main: ScheduleMain }}></Route>
+		</Route>
+	</Router>
+), document.getElementById('app'))
+
+
+// import React from 'react'
+// import { render, findDOMNode } from 'react-dom'
+// import { browserHistory, Router, Route, IndexRoute, Link } from 'react-router'
+// import ContactStore from './ContactStore'
+// import './app.css'
+
+// const App = React.createClass({
+//   getInitialState() {
+//     return {
+//       contacts: ContactStore.getContacts(),
+//       loading: true
+//     }
+//   },
+
+//   componentWillMount() {
+//     ContactStore.init()
+//   },
+
+//   componentDidMount() {
+//     ContactStore.addChangeListener(this.updateContacts)
+//   },
+
+//   componentWillUnmount() {
+//     ContactStore.removeChangeListener(this.updateContacts)
+//   },
+
+//   updateContacts() {
+//     if (!this.isMounted())
+//       return
+
+//     this.setState({
+//       contacts: ContactStore.getContacts(),
+//       loading: false
+//     })
+//   },
+
+//   render() {
+//     const contacts = this.state.contacts.map(function (contact) {
+//       return <li key={contact.id}><Link to={`/contact/${contact.id}`}>{contact.first}</Link></li>
+//     })
+
+//     return (
+//       <div className="App">
+//         <div className="ContactList">
+//           <Link to="/contact/new">New Contact</Link>
+//           <ul>
+//             {contacts}
+//           </ul>
+//         </div>
+//         <div className="Content">
+//           {this.props.children}
+//         </div>
+//       </div>
+//     )
+//   }
+// })
+
+// const Index = React.createClass({
+//   render() {
+//     return <h1>Address Book</h1>
+//   }
+// })
+
+// const Contact = React.createClass({
+//   contextTypes: {
+//     router: React.PropTypes.object.isRequired
+//   },
+
+//   getStateFromStore(props) {
+//     const { id } = props ? props.params : this.props.params
+
+//     return {
+//       contact: ContactStore.getContact(id)
+//     }
+//   },
+
+//   getInitialState() {
+//     return this.getStateFromStore()
+//   },
+
+//   componentDidMount() {
+//     ContactStore.addChangeListener(this.updateContact)
+//   },
+
+//   componentWillUnmount() {
+//     ContactStore.removeChangeListener(this.updateContact)
+//   },
+
+//   componentWillReceiveProps(nextProps) {
+//     this.setState(this.getStateFromStore(nextProps))
+//   },
+
+//   updateContact() {
+//     if (!this.isMounted())
+//       return
+
+//     this.setState(this.getStateFromStore())
+//   },
+
+//   destroy() {
+//     const { id } = this.props.params
+//     ContactStore.removeContact(id)
+//     this.context.router.push('/')
+//   },
+
+//   render() {
+//     const contact = this.state.contact || {}
+//     const name = contact.first + ' ' + contact.last
+//     const avatar = contact.avatar || 'http://placecage.com/50/50'
+
+//     return (
+//       <div className="Contact">
+//         <img height="50" src={avatar} key={avatar} />
+//         <h3>{name}</h3>
+//         <button onClick={this.destroy}>Delete</button>
+//       </div>
+//     )
+//   }
+// })
+
+// const NewContact = React.createClass({
+//   contextTypes: {
+//     router: React.PropTypes.object.isRequired
+//   },
+
+//   createContact(event) {
+//     event.preventDefault()
+
+//     ContactStore.addContact({
+//       first: findDOMNode(this.refs.first).value,
+//       last: findDOMNode(this.refs.last).value
+//     }, (contact) => {
+//       this.context.router.push(`/contact/${contact.id}`)
+//     })
+//   },
+
+//   render() {
+//     return (
+//       <form onSubmit={this.createContact}>
+//         <p>
+//           <input type="text" ref="first" placeholder="First name" />
+//           <input type="text" ref="last" placeholder="Last name" />
+//         </p>
+//         <p>
+//           <button type="submit">Save</button> <Link to="/">Cancel</Link>
+//         </p>
+//       </form>
+//     )
+//   }
+// })
+
+// const NotFound = React.createClass({
+//   render() {
+//     return <h2>Not found</h2>
+//   }
+// })
+
+// render((
+//   <Router history={browserHistory}>
+//     <Route path="/" component={App}>
+//       <IndexRoute component={Index} />
+//       <Route path="contact/new" component={NewContact} />
+//       <Route path="contact/:id" component={Contact} />
+//       <Route path="*" component={NotFound} />
+//     </Route>
+//   </Router>
+// ), document.getElementById('app'))
+
+
+// import React from 'react'
+// import { render } from 'react-dom'
+// import { browserHistory, Router, Route, IndexRoute, Link } from 'react-router'
+
+// const PICTURES = [
+//   { id: 0, src: 'http://placekitten.com/601/601' },
+//   { id: 1, src: 'http://placekitten.com/610/610' },
+//   { id: 2, src: 'http://placekitten.com/620/620' }
+// ]
+
+// const Modal = React.createClass({
+//   styles: {
+//     position: 'fixed',
+//     top: '20%',
+//     right: '20%',
+//     bottom: '20%',
+//     left: '20%',
+//     padding: 20,
+//     boxShadow: '0px 0px 150px 130px rgba(0, 0, 0, 0.5)',
+//     overflow: 'auto',
+//     background: '#fff'
+//   },
+
+//   render() {
+//     return (
+//       <div style={this.styles}>
+//         <p><Link to={this.props.returnTo}>Back</Link></p>
+//         {this.props.children}
+//       </div>
+//     )
+//   }
+// })
+
+// const App = React.createClass({
+
+//   componentWillReceiveProps(nextProps) {
+//     // if we changed routes...
+//     if ((
+//       nextProps.location.key !== this.props.location.key &&
+//       nextProps.location.state &&
+//       nextProps.location.state.modal
+//     )) {
+//       // save the old children (just like animation)
+//       this.previousChildren = this.props.children
+//     }
+//   },
+
+//   render() {
+//     let { location } = this.props
+
+//     let isModal = (
+//       location.state &&
+//       location.state.modal &&
+//       this.previousChildren
+//     )
+
+//     return (
+//       <div>
+//         <h1>Pinterest Style Routes</h1>
+
+//         <div>
+//           {isModal ?
+//             this.previousChildren :
+//             this.props.children
+//           }
+
+//           {isModal && (
+//             <Modal isOpen={true} returnTo={location.state.returnTo}>
+//               {this.props.children}
+//             </Modal>
+//           )}
+//         </div>
+//       </div>
+//     )
+//   }
+// })
+
+// const Index = React.createClass({
+//   render() {
+//     return (
+//       <div>
+//         <p>
+//           The url `/pictures/:id` can be rendered anywhere in the app as a modal.
+//           Simply put `modal: true` in the location descriptor of the `to` prop.
+//         </p>
+
+//         <p>
+//           Click on an item and see its rendered as a modal, then copy/paste the
+//           url into a different browser window (with a different session, like
+//           Chrome -> Firefox), and see that the image does not render inside the
+//           overlay. One URL, two session dependent screens :D
+//         </p>
+
+//         <div>
+//           {PICTURES.map(picture => (
+//             <Link
+//               key={picture.id}
+//               to={{
+//                 pathname: `/pictures/${picture.id}`,
+//                 state: { modal: true, returnTo: this.props.location.pathname }
+//               }}
+//             >
+//               <img style={{ margin: 10 }} src={picture.src} height="100" />
+//             </Link>
+//           ))}
+//         </div>
+
+//         <p><Link to="/some/123/deep/456/route">Go to some deep route</Link></p>
+
+//       </div>
+//     )
+//   }
+// })
+
+// const Deep = React.createClass({
+//   render() {
+//     return (
+//       <div>
+//         <p>You can link from anywhere really deep too</p>
+//         <p>Params stick around: {this.props.params.one} {this.props.params.two}</p>
+//         <p>
+//           <Link to={{
+//             pathname: `/pictures/0`,
+//             state: { modal: true, returnTo: this.props.location.pathname }
+//           }}>
+//             Link to picture with Modal
+//           </Link><br/>
+//           <Link to={`/pictures/0`}>
+//             Without modal
+//           </Link>
+//         </p>
+//       </div>
+//     )
+//   }
+// })
+
+// const Picture = React.createClass({
+//   render() {
+//     return (
+//       <div>
+//         <img src={PICTURES[this.props.params.id].src} style={{ height: '80%' }} />
+//       </div>
+//     )
+//   }
+// })
+
+// render((
+//   <Router history={browserHistory}>
+//     <Route path="/" component={App}>
+//       <IndexRoute component={Index}/>
+//       <Route path="/pictures/:id" component={Picture}/>
+//       <Route path="/some/:one/deep/:two/route" component={Deep}/>
+//     </Route>
+//   </Router>
+// ), document.getElementById('app'))
+
+
+/*
 import React from 'react'
 import { render } from 'react-dom'
 import { browserHistory, Router, Route, Link } from 'react-router'
@@ -136,3 +512,5 @@ render((
 		</Route>
 	</Router>
 ), document.getElementById('app'))
+*/
+
