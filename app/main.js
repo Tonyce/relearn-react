@@ -3,7 +3,8 @@
 
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { browserHistory, Router, Route, Link } from 'react-router';
+import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
+import { browserHistory, Router, IndexRoute, Route, Link } from 'react-router';
 
 
 import IndexHeader from './components/index/Header';
@@ -18,6 +19,7 @@ import Footer from './components/Footer';
 
 import './app.css'
 
+// const ACTIVE = { 'width': '100%' }
 
 class Nav extends React.Component {
 	
@@ -27,10 +29,14 @@ class Nav extends React.Component {
 
 	render() {
 		return (
-			<nav>
-				<Link to="/">index</Link>
-				<Link to="/about">about</Link>
-				<Link to="/schedule">schedule</Link>
+			<nav className="flex-layout h-center v-between">
+				<div>
+					<Link className="center" to="/">INDEX</Link>
+				</div>
+				<div className="center">
+					<Link className="center" to="/about" activeClassName='animate'>ABOUT</Link>
+					<Link className="center" to="/schedule" activeClassName='animate'>SCHEDULE</Link>
+				</div>	
 			</nav>
 		);
 	}
@@ -38,18 +44,27 @@ class Nav extends React.Component {
 
 class App extends React.Component {
 	render() {
-		const { header, main } = this.props
+		let { header, main } = this.props;
+
+
+		main = <div id="main" key={this.props.location.pathname}>{main}</div>;
+		
+
 		return (
 			<div>
 				<header>
 					<Nav />
 					{ header || <IndexHeader /> }
 				</header>
-				<div id="main">
-					{ main || <IndexMain /> }
-				</div>
 
-				
+			 	<ReactCSSTransitionGroup
+					component="div"
+					transitionName="example"
+					transitionEnterTimeout={500}
+					transitionLeaveTimeout={500}>
+						{ main || <IndexMain /> }
+				</ReactCSSTransitionGroup>
+
 				<Footer />
 				
 			</div>
@@ -60,6 +75,7 @@ class App extends React.Component {
 ReactDOM.render((
 	<Router history={browserHistory}>
 		<Route path="/" component={App}>
+			<IndexRoute components={{ header: IndexHeader, main: IndexMain }}></IndexRoute>
 			<Route path="about" components={{ header: AboutHeader, main: AboutMain }}></Route>
 			<Route path="Schedule" components={{ header: ScheduleHeader, main: ScheduleMain }}></Route>
 		</Route>
