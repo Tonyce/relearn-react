@@ -49,12 +49,13 @@ class App extends React.Component {
 
 		main = <div id="main" key={this.props.location.pathname}>{main}</div>;
 		
-
 		return (
 			<div>
-				<header>
+				<header className="flex-layout column v-between">
 					<Nav />
-					{ header || <IndexHeader /> }
+					<div className="header-nav">
+						{ header }
+					</div>
 				</header>
 
 			 	<ReactCSSTransitionGroup
@@ -62,7 +63,7 @@ class App extends React.Component {
 					transitionName="example"
 					transitionEnterTimeout={500}
 					transitionLeaveTimeout={500}>
-						{ main || <IndexMain /> }
+						{ main }
 				</ReactCSSTransitionGroup>
 
 				<Footer />
@@ -75,7 +76,7 @@ class App extends React.Component {
 ReactDOM.render((
 	<Router history={browserHistory}>
 		<Route path="/" component={App}>
-			<IndexRoute components={{ header: IndexHeader, main: IndexMain }}></IndexRoute>
+			<IndexRoute components={{ main: IndexMain }}></IndexRoute>
 			<Route path="about" components={{ header: AboutHeader, main: AboutMain }}></Route>
 			<Route path="Schedule" components={{ header: ScheduleHeader, main: ScheduleMain }}></Route>
 		</Route>

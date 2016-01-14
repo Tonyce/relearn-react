@@ -10,17 +10,17 @@ class Main extends React.Component {
 		super();
 	}
 
-	// componentWillMount() {
-	// 	console.log(`about will Mount ${new Date().getTime()}`)
-	// }
+	componentWillMount() {
+		console.log(`about will Mount ${new Date().getTime()}`)
+	}
 
-	// componentDidMount() {
-	// 	console.log(`about did Mount ${new Date().getTime()}`)
-	// }
+	componentDidMount() {
+		console.log(`about did Mount ${new Date().getTime()}`)
+	}
 
-	// componentWillUnmount () {
-	// 	console.log(`about componentWillUnmount ${new Date().getTime()}`)		
-	// }
+	componentWillUnmount () {
+		console.log(`about componentWillUnmount ${new Date().getTime()}`)		
+	}
 
 	render() {
 		return (
@@ -29,8 +29,18 @@ class Main extends React.Component {
 					<h1>i am about main</h1>
 				</div>
 
-				<div id="main-content">
-					fasdfa
+				<div id="main-content" className="flex-layout row">
+					<div className="left">
+					</div>
+
+					<div className="right flex-layout column">
+						<div>
+							fsd
+						</div>
+						<div>
+							dfs
+						</div>
+					</div>
 				</div>
 			</div>
 		);

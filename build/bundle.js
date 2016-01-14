@@ -181,9 +181,13 @@
 					null,
 					_react2.default.createElement(
 						'header',
-						null,
+						{ className: 'flex-layout column v-between' },
 						_react2.default.createElement(Nav, null),
-						header || _react2.default.createElement(_Header2.default, null)
+						_react2.default.createElement(
+							'div',
+							{ className: 'header-nav' },
+							header
+						)
 					),
 					_react2.default.createElement(
 						_reactAddonsCssTransitionGroup2.default,
@@ -192,7 +196,7 @@
 							transitionName: 'example',
 							transitionEnterTimeout: 500,
 							transitionLeaveTimeout: 500 },
-						main || _react2.default.createElement(_Main2.default, null)
+						main
 					),
 					_react2.default.createElement(_Footer2.default, null)
 				);
@@ -208,7 +212,7 @@
 		_react2.default.createElement(
 			_reactRouter.Route,
 			{ path: '/', component: App },
-			_react2.default.createElement(_reactRouter.IndexRoute, { components: { header: _Header2.default, main: _Main2.default } }),
+			_react2.default.createElement(_reactRouter.IndexRoute, { components: { main: _Main2.default } }),
 			_react2.default.createElement(_reactRouter.Route, { path: 'about', components: { header: _Header4.default, main: _Main4.default } }),
 			_react2.default.createElement(_reactRouter.Route, { path: 'Schedule', components: { header: _Header6.default, main: _Main6.default } })
 		)
@@ -25421,9 +25425,13 @@
 			key: 'render',
 			value: function render() {
 				return _react2.default.createElement(
-					'h1',
+					'div',
 					null,
-					'i am index Header'
+					_react2.default.createElement(
+						'h1',
+						null,
+						'i am index Header'
+					)
 				);
 			}
 		}]);
@@ -25473,9 +25481,13 @@
 			key: 'render',
 			value: function render() {
 				return _react2.default.createElement(
-					'h1',
+					'div',
 					null,
-					'i am about Header'
+					_react2.default.createElement(
+						'h1',
+						null,
+						'i am about Header'
+					)
 				);
 			}
 		}]);
@@ -25525,9 +25537,13 @@
 			key: 'render',
 			value: function render() {
 				return _react2.default.createElement(
-					'h1',
+					'div',
 					null,
-					'i am schdule Header'
+					_react2.default.createElement(
+						'h1',
+						null,
+						'i am schdule Header'
+					)
 				);
 			}
 		}]);
@@ -25651,19 +25667,22 @@
 			return _possibleConstructorReturn(this, Object.getPrototypeOf(Main).call(this));
 		}
 
-		// componentWillMount() {
-		// 	console.log(`about will Mount ${new Date().getTime()}`)
-		// }
-
-		// componentDidMount() {
-		// 	console.log(`about did Mount ${new Date().getTime()}`)
-		// }
-
-		// componentWillUnmount () {
-		// 	console.log(`about componentWillUnmount ${new Date().getTime()}`)		
-		// }
-
 		_createClass(Main, [{
+			key: 'componentWillMount',
+			value: function componentWillMount() {
+				console.log('about will Mount ' + new Date().getTime());
+			}
+		}, {
+			key: 'componentDidMount',
+			value: function componentDidMount() {
+				console.log('about did Mount ' + new Date().getTime());
+			}
+		}, {
+			key: 'componentWillUnmount',
+			value: function componentWillUnmount() {
+				console.log('about componentWillUnmount ' + new Date().getTime());
+			}
+		}, {
 			key: 'render',
 			value: function render() {
 				return _react2.default.createElement(
@@ -25680,8 +25699,22 @@
 					),
 					_react2.default.createElement(
 						'div',
-						{ id: 'main-content' },
-						'fasdfa'
+						{ id: 'main-content', className: 'flex-layout row' },
+						_react2.default.createElement('div', { className: 'left' }),
+						_react2.default.createElement(
+							'div',
+							{ className: 'right flex-layout column' },
+							_react2.default.createElement(
+								'div',
+								null,
+								'fsd'
+							),
+							_react2.default.createElement(
+								'div',
+								null,
+								'dfs'
+							)
+						)
 					)
 				);
 			}
@@ -25762,6 +25795,26 @@
 							'i am scheduler Main'
 						),
 						_react2.default.createElement(
+							'h1',
+							null,
+							'i am scheduler Main'
+						),
+						_react2.default.createElement(
+							'h1',
+							null,
+							'i am scheduler Main'
+						),
+						_react2.default.createElement(
+							'h1',
+							null,
+							'i am scheduler Main'
+						),
+						_react2.default.createElement(
+							'h1',
+							null,
+							'i am scheduler Main'
+						),
+						_react2.default.createElement(
 							'a',
 							{ href: '#' },
 							'aaa'
@@ -25769,7 +25822,7 @@
 					),
 					_react2.default.createElement(
 						'div',
-						{ id: 'main-content' },
+						{ className: 'schedule' },
 						'fasdfa'
 					)
 				);
@@ -25872,7 +25925,7 @@
 
 
 	// module
-	exports.push([module.id, "{\n\tmargin: 0;\n\tpadding: 0;\n}\n\nbody {\n\tfont-family: \"Helvetica Neue\", Arial;\n\tfont-weight: 200;\n\tbackground-color: #E0E0E0;\n}\n\na {\n\tcolor: hsl(200, 50%, 50%);\n\ttext-decoration: none;\n}\n\n/*\na.active {\n \tcolor: hsl(20, 50%, 50%);\n}*/\n\n\nheader {\n\twidth: 100%;\n\theight: 400px;\n\tmargin-bottom: -100px;\n\tbackground-color: #00BCD4;\n}\n\nnav {\n\tpadding: 0 10px;\n\tcolor: #fff;\n\twidth: auto;\n\theight: 60px;\n}\n\nnav div {\n\twidth: auto;\n\theight: inherit;\n}\n\nnav a {\n\tposition: relative;\n\tfont-size: 1.2em;\n\tcolor: #fff;\n\theight: inherit;\n\tpadding: 0 20px;\n}\n\n\nnav a:before {\n\tcontent: \"\";\n    position: absolute;\n    left: 0;\n    bottom: 0;\n    width: 0;\n    height: 5px;\n    background-color: #fff;\n  \ttransition: width 0.3s;\n}\n\nnav a.animate:before{\n\twidth: 100%;\n}\n\n\n.flex-layout {\n    display: -webkit-flex;\n    display: flex;\n    justify-content: flex-start;\n}\n.row {\n    -webkit-flex-direction: row;\n    flex-direction: row;\n}\n\n.column {\n    -webkit-flex-direction: column;\n    flex-direction: column;\n}\n.column-reverse {\n    -webkit-flex-direction: column-reverse ;\n    flex-direction: column-reverse ;\n}\n.center {\n    display: flex;\n    justify-content: center;\n    align-items: center;\n    display: -webkit-flex;\n    -webkit-justify-content: center;\n    -webkit-align-items: center;\n}\n.v-center {\n    -webkit-justify-content: center;\n    justify-content: center;\n}\n.v-around {\n    -webkit-justify-content: space-around;\n    justify-content: space-around;\n}\n.v-between {\n    -webkit-justify-content: space-between;\n    justify-content: space-between;\n}\n.h-center {\n    -webkit-align-items: center;\n    align-items: center;\n}\n\n#main {\n\twidth: 100%;\n}\n\n#main>div {\n\twidth: inherit;\n}\n\n#main-content {\n\twidth: inherit;\n\theight: 500px;\n\tmargin-top: -150px;\n\tbackground: rgba(0, 0, 0, 0.4);\n\t/*border: solid 1px red;*/\n}\n\n.card {\n\tposition: relative;\n\tz-index: 100;\n\twidth: 80%;\n\tmargin: 0 auto;\n\theight: 250px;\n\tbackground-color: #fff;\n\tbox-shadow: 0px 2px 5px 0px rgba(0,0,0,0.16),0px 2px 5px 0px rgba(0,0,0,0.23);\n}\n\nfooter {\n\twidth: 100%;\n\theight: 200px;\n\tbackground-color: #fff;\n}\n\n\n.example-enter {\n  opacity: 0.01;\n  transform: translateY(100px);\n}\n\n.example-enter.example-enter-active {\n  opacity: 1;\n  transform: translateY(0);\n  transition: all 500ms ease-in;\n}\n\n.example-leave {\n  opacity: 1;\n  transform: translateY(0);\n  \n}\n\n.example-leave.example-leave-active {\n  opacity: 0.01;\n  transform: translateY(100px);\n  transition: all 300ms ease-in;\n}\n\n.example-delay-enter {\n  opacity: 0.01;\n  transform: translateY(100px);\n}\n\n.example-delay-enter.example-delay-enter-active {\n  opacity: 1;\n  transform: translateY(0);\n  transition: all 500ms ease-in;\n  transition-delay: 0.1s;\n}\n\n.example-delay-leave {\n  opacity: 1;\n  transform: translateY(0);\n  \n}\n\n.example-delay-leave.example-delay-leave-active {\n  opacity: 0.01;\n  transform: translateY(100px);\n  transition: all 300ms ease-in;\n  transition-delay: 0.1s;\n}\n", ""]);
+	exports.push([module.id, "{\n\tmargin: 0;\n\tpadding: 0;\n}\n\nbody {\n\tfont-family: \"Helvetica Neue\", Arial;\n\tfont-weight: 200;\n\tbackground-color: #E0E0E0;\n}\n\na {\n\tcolor: hsl(200, 50%, 50%);\n\ttext-decoration: none;\n}\n\n/*\na.active {\n \tcolor: hsl(20, 50%, 50%);\n}*/\n\n\nheader {\n\twidth: 100%;\n\theight: 400px;\n\tmargin-bottom: -100px;\n\tbackground-color: #00BCD4;\n}\n\nnav {\n\tpadding: 0 10px;\n\tcolor: #fff;\n\twidth: auto;\n\theight: 60px;\n}\n\nnav div {\n\twidth: auto;\n\theight: inherit;\n}\n\n.header-nav {\n  margin: 0 auto 130px auto;\n  color: #ffffff;\n  font-weight: 100;\n  width: 80%;\n}\n\nnav a {\n\tposition: relative;\n\tfont-size: 1.2em;\n\tcolor: #fff;\n\theight: inherit;\n\tpadding: 0 20px;\n}\n\n\nnav a:before {\n\tcontent: \"\";\n    position: absolute;\n    left: 0;\n    bottom: 0;\n    width: 0;\n    height: 5px;\n    background-color: #fff;\n  \ttransition: width 0.3s;\n}\n\nnav a.animate:before{\n\twidth: 100%;\n}\n\n\n.flex-layout {\n    display: -webkit-flex;\n    display: flex;\n    justify-content: flex-start;\n}\n.row {\n    -webkit-flex-direction: row;\n    flex-direction: row;\n}\n\n.column {\n    -webkit-flex-direction: column;\n    flex-direction: column;\n}\n.column-reverse {\n    -webkit-flex-direction: column-reverse ;\n    flex-direction: column-reverse ;\n}\n.center {\n    display: flex;\n    justify-content: center;\n    align-items: center;\n    display: -webkit-flex;\n    -webkit-justify-content: center;\n    -webkit-align-items: center;\n}\n.v-center {\n    -webkit-justify-content: center;\n    justify-content: center;\n}\n.v-around {\n    -webkit-justify-content: space-around;\n    justify-content: space-around;\n}\n.v-between {\n    -webkit-justify-content: space-between;\n    justify-content: space-between;\n}\n.h-center {\n    -webkit-align-items: center;\n    align-items: center;\n}\n\n#main {\n\twidth: 100%;\n}\n\n#main>div {\n\twidth: inherit;\n}\n\n#main-content {\n\twidth: inherit;\n\theight: 500px;\n\tmargin-top: -100px;\n\tbackground: rgba(0, 0, 0, 0.4);\n\t/*border: solid 1px red;*/\n}\n\n.left {\n  background-color: red;\n  flex-grow:7;\n}\n\n.right {\n  flex-grow:3;\n  background-color: yellow;\n}\n\n.right>div {\n  flex-grow:1;\n}\n\n.right>div:nth-child(even) {\n    background: #0000ff;\n}\n\n.schedule {\n  width: 80%;\n  height: 500px;\n  margin: 20px auto;\n  background-color: #fff;\n  box-shadow: 0px 2px 5px 0px rgba(0,0,0,0.16),0px 2px 5px 0px rgba(0,0,0,0.23);\n}\n\n.card {\n\tposition: relative;\n\tz-index: 100;\n\twidth: 80%;\n\tmargin: 0 auto;\n\tmin-height: 200px;\n\tbackground-color: #fff;\n\tbox-shadow: 0px 2px 5px 0px rgba(0,0,0,0.16),0px 2px 5px 0px rgba(0,0,0,0.23);\n}\n\nfooter {\n\twidth: 100%;\n\theight: 200px;\n\tbackground-color: #fff;\n}\n\n\n.example-enter {\n  opacity: 0.01;\n}\n\n.example-enter.example-enter-active {\n  opacity: 1;\n  transition: all 500ms ease-in;\n}\n\n.example-leave {\n  opacity: 1;\n}\n\n.example-leave.example-leave-active {\n  opacity: 0.01;\n  transition: all 300ms ease-in;\n}\n\n", ""]);
 
 	// exports
 

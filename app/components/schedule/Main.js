@@ -20,10 +20,14 @@ class Main extends React.Component {
 					<h1>i am scheduler Main</h1>
 					<h1>i am scheduler Main</h1>
 					<h1>i am scheduler Main</h1>
+					<h1>i am scheduler Main</h1>
+					<h1>i am scheduler Main</h1>
+					<h1>i am scheduler Main</h1>
+					<h1>i am scheduler Main</h1>
 					<a href="#">aaa</a>
 				</div>
 
-				<div id="main-content">
+				<div className="schedule">
 					fasdfa
 				</div>
 			</div>
