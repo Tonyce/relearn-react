@@ -93,15 +93,11 @@
 
 	var _Main6 = _interopRequireDefault(_Main5);
 
-	var _Card = __webpack_require__(220);
-
-	var _Card2 = _interopRequireDefault(_Card);
-
-	var _Footer = __webpack_require__(221);
+	var _Footer = __webpack_require__(220);
 
 	var _Footer2 = _interopRequireDefault(_Footer);
 
-	__webpack_require__(222);
+	__webpack_require__(221);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -174,19 +170,10 @@
 				var header = _props.header;
 				var main = _props.main;
 
-				// console.log(main)
-				// console.log(ma)
-
 				main = _react2.default.createElement(
 					'div',
-					{ key: this.props.location.pathname },
+					{ id: 'main', key: this.props.location.pathname },
 					main
-				);
-				// console.log(main.children)
-				var card = _react2.default.createElement(
-					'div',
-					{ className: 'card', key: this.props.location.pathname },
-					_Card2.default
 				);
 
 				return _react2.default.createElement(
@@ -199,26 +186,13 @@
 						header || _react2.default.createElement(_Header2.default, null)
 					),
 					_react2.default.createElement(
-						'div',
-						{ id: 'main' },
-						_react2.default.createElement(
-							_reactAddonsCssTransitionGroup2.default,
-							{
-								component: 'div',
-								transitionName: 'example',
-								transitionEnterTimeout: 500,
-								transitionLeaveTimeout: 500 },
-							card
-						),
-						_react2.default.createElement(
-							_reactAddonsCssTransitionGroup2.default,
-							{
-								component: 'div',
-								transitionName: 'example-delay',
-								transitionEnterTimeout: 500,
-								transitionLeaveTimeout: 500 },
-							main
-						)
+						_reactAddonsCssTransitionGroup2.default,
+						{
+							component: 'div',
+							transitionName: 'example',
+							transitionEnterTimeout: 500,
+							transitionLeaveTimeout: 500 },
+						main || _react2.default.createElement(_Main2.default, null)
 					),
 					_react2.default.createElement(_Footer2.default, null)
 				);
@@ -25611,21 +25585,27 @@
 		}, {
 			key: 'render',
 			value: function render() {
-				return(
-					// <div>
-					// 	<ReactCSSTransitionGroup transitionName="example" transitionEnterTimeout={500} transitionLeaveTimeout={300}>
-					// 	<div className="card">
-					// 		<h1>i am index Main</h1>
-					// 	</div>
-
+				return _react2.default.createElement(
+					'div',
+					null,
 					_react2.default.createElement(
-						'div',
-						{ id: 'main-content' },
-						'fasdfa'
+						_reactAddonsCssTransitionGroup2.default,
+						{ transitionName: 'example', transitionEnterTimeout: 500, transitionLeaveTimeout: 300 },
+						_react2.default.createElement(
+							'div',
+							{ className: 'card' },
+							_react2.default.createElement(
+								'h1',
+								null,
+								'i am index Main'
+							)
+						),
+						_react2.default.createElement(
+							'div',
+							{ id: 'main-content' },
+							'fasdfa'
+						)
 					)
-					// 	</ReactCSSTransitionGroup>
-					// </div>
-
 				);
 			}
 		}]);
@@ -25662,35 +25642,8 @@
 
 	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
-	var Card = function (_React$Component) {
-		_inherits(Card, _React$Component);
-
-		function Card() {
-			_classCallCheck(this, Card);
-
-			return _possibleConstructorReturn(this, Object.getPrototypeOf(Card).call(this));
-		}
-
-		_createClass(Card, [{
-			key: 'render',
-			value: function render() {
-				return _react2.default.createElement(
-					'div',
-					{ className: 'card' },
-					_react2.default.createElement(
-						'h1',
-						null,
-						'i am about main'
-					)
-				);
-			}
-		}]);
-
-		return Card;
-	}(_react2.default.Component);
-
-	var Main = function (_React$Component2) {
-		_inherits(Main, _React$Component2);
+	var Main = function (_React$Component) {
+		_inherits(Main, _React$Component);
 
 		function Main() {
 			_classCallCheck(this, Main);
@@ -25713,17 +25666,23 @@
 		_createClass(Main, [{
 			key: 'render',
 			value: function render() {
-				return(
-					// <div components={{ Card: Card }}>
-					// <Card />
-
+				return _react2.default.createElement(
+					'div',
+					null,
+					_react2.default.createElement(
+						'div',
+						{ className: 'card' },
+						_react2.default.createElement(
+							'h1',
+							null,
+							'i am about main'
+						)
+					),
 					_react2.default.createElement(
 						'div',
 						{ id: 'main-content' },
 						'fasdfa'
 					)
-					// </div>
-
 				);
 			}
 		}]);
@@ -25776,24 +25735,43 @@
 		_createClass(Main, [{
 			key: 'render',
 			value: function render() {
-				return(
-					// <div>
-
-					// 	<div className="card">
-					// 		<h1>i am scheduler Main</h1>
-					// 		<h1>i am scheduler Main</h1>
-					// 		<h1>i am scheduler Main</h1>
-					// 		<h1>i am scheduler Main</h1>
-					// 		<a href="#">aaa</a>
-					// 	</div>
-
+				return _react2.default.createElement(
+					'div',
+					null,
+					_react2.default.createElement(
+						'div',
+						{ className: 'card' },
+						_react2.default.createElement(
+							'h1',
+							null,
+							'i am scheduler Main'
+						),
+						_react2.default.createElement(
+							'h1',
+							null,
+							'i am scheduler Main'
+						),
+						_react2.default.createElement(
+							'h1',
+							null,
+							'i am scheduler Main'
+						),
+						_react2.default.createElement(
+							'h1',
+							null,
+							'i am scheduler Main'
+						),
+						_react2.default.createElement(
+							'a',
+							{ href: '#' },
+							'aaa'
+						)
+					),
 					_react2.default.createElement(
 						'div',
 						{ id: 'main-content' },
 						'fasdfa'
 					)
-					// </div>
-
 				);
 			}
 		}]);
@@ -25805,58 +25783,6 @@
 
 /***/ },
 /* 220 */
-/***/ function(module, exports, __webpack_require__) {
-
-	
-	"use strict";
-
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
-	Object.defineProperty(exports, "__esModule", {
-		value: true
-	});
-
-	var _react = __webpack_require__(2);
-
-	var _react2 = _interopRequireDefault(_react);
-
-	var _reactDom = __webpack_require__(159);
-
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-
-	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-
-	var Card = function (_React$Component) {
-		_inherits(Card, _React$Component);
-
-		function Card() {
-			_classCallCheck(this, Card);
-
-			return _possibleConstructorReturn(this, Object.getPrototypeOf(Card).call(this));
-		}
-
-		_createClass(Card, [{
-			key: 'render',
-			value: function render() {
-				return _react2.default.createElement(
-					'h1',
-					null,
-					'i am about main'
-				);
-			}
-		}]);
-
-		return Card;
-	}(_react2.default.Component);
-
-	exports.default = Card;
-
-/***/ },
-/* 221 */
 /***/ function(module, exports, __webpack_require__) {
 
 	
@@ -25912,16 +25838,16 @@
 	exports.default = Footer;
 
 /***/ },
-/* 222 */
+/* 221 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// style-loader: Adds some css to the DOM by adding a <style> tag
 
 	// load the styles
-	var content = __webpack_require__(223);
+	var content = __webpack_require__(222);
 	if(typeof content === 'string') content = [[module.id, content, '']];
 	// add the styles to the DOM
-	var update = __webpack_require__(225)(content, {});
+	var update = __webpack_require__(224)(content, {});
 	if(content.locals) module.exports = content.locals;
 	// Hot Module Replacement
 	if(false) {
@@ -25938,21 +25864,21 @@
 	}
 
 /***/ },
-/* 223 */
+/* 222 */
 /***/ function(module, exports, __webpack_require__) {
 
-	exports = module.exports = __webpack_require__(224)();
+	exports = module.exports = __webpack_require__(223)();
 	// imports
 
 
 	// module
-	exports.push([module.id, "{\n\tmargin: 0;\n\tpadding: 0;\n}\n\nbody {\n\tfont-family: \"Helvetica Neue\", Arial;\n\tfont-weight: 200;\n\tbackground-color: #E0E0E0;\n}\n\na {\n\tcolor: hsl(200, 50%, 50%);\n\ttext-decoration: none;\n}\n\n/*\na.active {\n \tcolor: hsl(20, 50%, 50%);\n}*/\n\n\nheader {\n\twidth: 100%;\n\theight: 400px;\n\tmargin-bottom: -100px;\n\tbackground-color: #00BCD4;\n}\n\nnav {\n\tpadding: 0 10px;\n\tcolor: #fff;\n\twidth: auto;\n\theight: 60px;\n}\n\nnav div {\n\twidth: auto;\n\theight: inherit;\n}\n\nnav a {\n\tposition: relative;\n\tfont-size: 1.2em;\n\tcolor: #fff;\n\theight: inherit;\n\tpadding: 0 20px;\n}\n\n\nnav a:before {\n\tcontent: \"\";\n    position: absolute;\n    left: 0;\n    bottom: 0;\n    width: 0;\n    height: 5px;\n    background-color: #fff;\n  \ttransition: width 0.3s;\n}\n\nnav a.animate:before{\n\twidth: 100%;\n}\n\n\n.flex-layout {\n    display: -webkit-flex;\n    display: flex;\n    justify-content: flex-start;\n}\n.row {\n    -webkit-flex-direction: row;\n    flex-direction: row;\n}\n\n.column {\n    -webkit-flex-direction: column;\n    flex-direction: column;\n}\n.column-reverse {\n    -webkit-flex-direction: column-reverse ;\n    flex-direction: column-reverse ;\n}\n.center {\n    display: flex;\n    justify-content: center;\n    align-items: center;\n    display: -webkit-flex;\n    -webkit-justify-content: center;\n    -webkit-align-items: center;\n}\n.v-center {\n    -webkit-justify-content: center;\n    justify-content: center;\n}\n.v-around {\n    -webkit-justify-content: space-around;\n    justify-content: space-around;\n}\n.v-between {\n    -webkit-justify-content: space-between;\n    justify-content: space-between;\n}\n.h-center {\n    -webkit-align-items: center;\n    align-items: center;\n}\n\n#main {\n\twidth: 100%;\n}\n\n#main>div {\n\twidth: inherit;\n}\n\n#main-content {\n\twidth: inherit;\n\theight: 500px;\n\tmargin-top: -150px;\n\tbackground: rgba(0, 0, 0, 0.4);\n\t/*border: solid 1px red;*/\n}\n\n.card {\n\tposition: relative;\n\tz-index: 100;\n\twidth: 80%;\n\tmargin: 0 auto;\n\theight: 250px;\n\tbackground-color: #fff;\n\tbox-shadow: 0px 2px 5px 0px rgba(0,0,0,0.16),0px 2px 5px 0px rgba(0,0,0,0.23);\n}\n\nfooter {\n\twidth: 100%;\n\theight: 200px;\n\tbackground-color: #fff;\n}\n\n\n.example-enter {\n  opacity: 0.01;\n  transform: translateY(100px);\n}\n\n.example-enter.example-enter-active {\n  opacity: 1;\n  transform: translateY(0);\n  transition: all 500ms ease-in;\n}\n\n.example-leave {\n  opacity: 1;\n  transform: translateY(0);\n  \n}\n\n.example-leave.example-leave-active {\n  opacity: 0.01;\n  transform: translateY(100px);\n  transition: all 300ms ease-in;\n  transition-delay: 0.5s;\n}\n\n\n\n\n.example-delay-enter {\n  opacity: 0.01;\n  transform: translateY(100px);\n}\n\n.example-delay-enter.example-delay-enter-active {\n  opacity: 1;\n  transform: translateY(0);\n  transition: all 500ms ease-in;\n  transition-delay: 0.1s;\n}\n\n.example-delay-leave {\n  opacity: 1;\n  transform: translateY(0);\n  \n}\n\n.example-delay-leave.example-delay-leave-active {\n  opacity: 0.01;\n  transform: translateY(100px);\n  transition: all 300ms ease-in;\n  \n}\n", ""]);
+	exports.push([module.id, "{\n\tmargin: 0;\n\tpadding: 0;\n}\n\nbody {\n\tfont-family: \"Helvetica Neue\", Arial;\n\tfont-weight: 200;\n\tbackground-color: #E0E0E0;\n}\n\na {\n\tcolor: hsl(200, 50%, 50%);\n\ttext-decoration: none;\n}\n\n/*\na.active {\n \tcolor: hsl(20, 50%, 50%);\n}*/\n\n\nheader {\n\twidth: 100%;\n\theight: 400px;\n\tmargin-bottom: -100px;\n\tbackground-color: #00BCD4;\n}\n\nnav {\n\tpadding: 0 10px;\n\tcolor: #fff;\n\twidth: auto;\n\theight: 60px;\n}\n\nnav div {\n\twidth: auto;\n\theight: inherit;\n}\n\nnav a {\n\tposition: relative;\n\tfont-size: 1.2em;\n\tcolor: #fff;\n\theight: inherit;\n\tpadding: 0 20px;\n}\n\n\nnav a:before {\n\tcontent: \"\";\n    position: absolute;\n    left: 0;\n    bottom: 0;\n    width: 0;\n    height: 5px;\n    background-color: #fff;\n  \ttransition: width 0.3s;\n}\n\nnav a.animate:before{\n\twidth: 100%;\n}\n\n\n.flex-layout {\n    display: -webkit-flex;\n    display: flex;\n    justify-content: flex-start;\n}\n.row {\n    -webkit-flex-direction: row;\n    flex-direction: row;\n}\n\n.column {\n    -webkit-flex-direction: column;\n    flex-direction: column;\n}\n.column-reverse {\n    -webkit-flex-direction: column-reverse ;\n    flex-direction: column-reverse ;\n}\n.center {\n    display: flex;\n    justify-content: center;\n    align-items: center;\n    display: -webkit-flex;\n    -webkit-justify-content: center;\n    -webkit-align-items: center;\n}\n.v-center {\n    -webkit-justify-content: center;\n    justify-content: center;\n}\n.v-around {\n    -webkit-justify-content: space-around;\n    justify-content: space-around;\n}\n.v-between {\n    -webkit-justify-content: space-between;\n    justify-content: space-between;\n}\n.h-center {\n    -webkit-align-items: center;\n    align-items: center;\n}\n\n#main {\n\twidth: 100%;\n}\n\n#main>div {\n\twidth: inherit;\n}\n\n#main-content {\n\twidth: inherit;\n\theight: 500px;\n\tmargin-top: -150px;\n\tbackground: rgba(0, 0, 0, 0.4);\n\t/*border: solid 1px red;*/\n}\n\n.card {\n\tposition: relative;\n\tz-index: 100;\n\twidth: 80%;\n\tmargin: 0 auto;\n\theight: 250px;\n\tbackground-color: #fff;\n\tbox-shadow: 0px 2px 5px 0px rgba(0,0,0,0.16),0px 2px 5px 0px rgba(0,0,0,0.23);\n}\n\nfooter {\n\twidth: 100%;\n\theight: 200px;\n\tbackground-color: #fff;\n}\n\n\n.example-enter {\n  opacity: 0.01;\n  transform: translateY(100px);\n}\n\n.example-enter.example-enter-active {\n  opacity: 1;\n  transform: translateY(0);\n  transition: all 500ms ease-in;\n}\n\n.example-leave {\n  opacity: 1;\n  transform: translateY(0);\n  \n}\n\n.example-leave.example-leave-active {\n  opacity: 0.01;\n  transform: translateY(100px);\n  transition: all 300ms ease-in;\n}\n\n.example-delay-enter {\n  opacity: 0.01;\n  transform: translateY(100px);\n}\n\n.example-delay-enter.example-delay-enter-active {\n  opacity: 1;\n  transform: translateY(0);\n  transition: all 500ms ease-in;\n  transition-delay: 0.1s;\n}\n\n.example-delay-leave {\n  opacity: 1;\n  transform: translateY(0);\n  \n}\n\n.example-delay-leave.example-delay-leave-active {\n  opacity: 0.01;\n  transform: translateY(100px);\n  transition: all 300ms ease-in;\n  transition-delay: 0.1s;\n}\n", ""]);
 
 	// exports
 
 
 /***/ },
-/* 224 */
+/* 223 */
 /***/ function(module, exports) {
 
 	/*
@@ -26008,7 +25934,7 @@
 
 
 /***/ },
-/* 225 */
+/* 224 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/*

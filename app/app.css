@@ -161,11 +161,7 @@ footer {
   opacity: 0.01;
   transform: translateY(100px);
   transition: all 300ms ease-in;
-  transition-delay: 0.5s;
 }
-
-
-
 
 .example-delay-enter {
   opacity: 0.01;
@@ -189,5 +185,5 @@ footer {
   opacity: 0.01;
   transform: translateY(100px);
   transition: all 300ms ease-in;
-  
+  transition-delay: 0.1s;
 }
