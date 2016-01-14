@@ -12,7 +12,9 @@ class Header extends React.Component {
 
 	render() {
 		return (
-			<h1>i am schdule Header</h1>
+			<div>
+				<h1>i am schdule Header</h1>
+			</div>
 		);
 	}
 }
