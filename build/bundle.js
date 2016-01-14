@@ -53,23 +53,13 @@
 
 	'use strict';
 
-	var _react = __webpack_require__(2);
+	// import React from 'react';
+	// import ReactDOM from 'react-dom';
+	// import { Router, Route, Link } from 'react-router';
 
-	var _react2 = _interopRequireDefault(_react);
+	// import Avatar from './component.js';
 
-	var _reactDom = __webpack_require__(159);
-
-	var _reactDom2 = _interopRequireDefault(_reactDom);
-
-	var _reactRouter = __webpack_require__(160);
-
-	var _component = __webpack_require__(207);
-
-	var _component2 = _interopRequireDefault(_component);
-
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-	_reactDom2.default.render(_react2.default.createElement(_component2.default, { username: 'pwh' }), document.getElementById('app'));
+	// ReactDOM.render(<Avatar username="pwh" />, document.getElementById('app'));
 
 	// import MyBar from './components/my/self-bar';
 
@@ -79,120 +69,285 @@
 	// 					TOP • 30
 	// 				</MyBar>, document.getElementById('app'));
 
-	/*
-	import React from 'react'
-	import { render } from 'react-dom'
-	import { browserHistory, Router, Route, Link } from 'react-router'
-	import data from './data'
-	import './app.css'
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-	class Category extends React.Component {
-	  render() {
-	    const category = data.lookupCategory(this.props.params.category)
+	var _react = __webpack_require__(2);
 
-	    return (
-	      <div>
-	        <h1>{category.name}</h1>
-	        {this.props.children || (
-	          <p>{category.description}</p>
-	        )}
-	      </div>
-	    )
-	  }
-	}
+	var _react2 = _interopRequireDefault(_react);
 
-	class CategorySidebar extends React.Component {
-	  render() {
-	    const category = data.lookupCategory(this.props.params.category)
+	var _reactDom = __webpack_require__(159);
 
-	    return (
-	      <div>
-	        <Link to="/">◀︎ Back</Link>
-	        <h2>{category.name} Items</h2>
-	        <ul>
-	          {category.items.map((item, index) => (
-	            <li key={index}>
-	              <Link to={`/category/${category.name}/${item.name}`}>{item.name}</Link>
-	            </li>
-	          ))}
-	        </ul>
-	      </div>
-	    )
-	  }
-	}
+	var _reactRouter = __webpack_require__(160);
 
-	class Item extends React.Component {
-	  render() {
-	    const { category, item } = this.props.params
-	    const menuItem = data.lookupItem(category, item)
+	var _data = __webpack_require__(207);
 
-	    return (
-	      <div>
-	        <h1>{menuItem.name}</h1>
-	        <p>${menuItem.price}</p>
-	      </div>
-	    )
-	  }
-	}
+	var _data2 = _interopRequireDefault(_data);
 
-	class Index extends React.Component {
-	  render() {
-	    return (
-	      <div>
-	        <h1>Sidebar</h1>
-	        <p>
-	          Routes can have multiple components, so that all portions of your UI
-	          can participate in the routing.
-	        </p>
-	      </div>
-	    )
-	  }
-	}
+	__webpack_require__(208);
 
-	class IndexSidebar extends React.Component {
-	  render() {
-	    return (
-	      <div>
-	        <h2>Categories</h2>
-	        <ul>
-	          {data.getAll().map((category, index) => (
-	            <li key={index}>
-	              <Link to={`/category/${category.name}`}>{category.name}</Link>
-	            </li>
-	          ))}
-	        </ul>
-	      </div>
-	    )
-	  }
-	}
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-	class App extends React.Component {
-	  render() {
-	    const { content, sidebar } = this.props
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
-	    return (
-	      <div>
-	        <div className="Sidebar">
-	          {sidebar || <IndexSidebar />}
-	        </div>
-	        <div className="Content">
-	          {content || <Index />}
-	        </div>
-	      </div>
-	    )
-	  }
-	}
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
 
-	render((
-	  <Router history={browserHistory}>
-	    <Route path="/" component={App}>
-	      <Route path="category/:category" components={{ content: Category, sidebar: CategorySidebar }}>
-	        <Route path=":item" component={Item} />
-	      </Route>
-	    </Route>
-	  </Router>
-	), document.getElementById('app'))
-	*/
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+	var Category = function (_React$Component) {
+		_inherits(Category, _React$Component);
+
+		function Category() {
+			_classCallCheck(this, Category);
+
+			return _possibleConstructorReturn(this, Object.getPrototypeOf(Category).apply(this, arguments));
+		}
+
+		_createClass(Category, [{
+			key: 'render',
+			value: function render() {
+				console.log("category");
+				console.log(this.props.params);
+
+				var category = _data2.default.lookupCategory(this.props.params.category);
+
+				return _react2.default.createElement(
+					'div',
+					null,
+					_react2.default.createElement(
+						'h1',
+						null,
+						category.name
+					),
+					this.props.children || _react2.default.createElement(
+						'p',
+						null,
+						category.description
+					)
+				);
+			}
+		}]);
+
+		return Category;
+	}(_react2.default.Component);
+
+	var CategorySidebar = function (_React$Component2) {
+		_inherits(CategorySidebar, _React$Component2);
+
+		function CategorySidebar() {
+			_classCallCheck(this, CategorySidebar);
+
+			return _possibleConstructorReturn(this, Object.getPrototypeOf(CategorySidebar).apply(this, arguments));
+		}
+
+		_createClass(CategorySidebar, [{
+			key: 'render',
+			value: function render() {
+				console.log("CategorySidebar");
+				console.log(this.props.params);
+				var category = _data2.default.lookupCategory(this.props.params.category);
+
+				return _react2.default.createElement(
+					'div',
+					null,
+					_react2.default.createElement(
+						_reactRouter.Link,
+						{ to: '/' },
+						'◀︎ Back'
+					),
+					_react2.default.createElement(
+						'h2',
+						null,
+						category.name,
+						' Items'
+					),
+					_react2.default.createElement(
+						'ul',
+						null,
+						category.items.map(function (item, index) {
+							return _react2.default.createElement(
+								'li',
+								{ key: index },
+								_react2.default.createElement(
+									_reactRouter.Link,
+									{ to: '/category/' + category.name + '/' + item.name },
+									item.name
+								)
+							);
+						})
+					)
+				);
+			}
+		}]);
+
+		return CategorySidebar;
+	}(_react2.default.Component);
+
+	var Item = function (_React$Component3) {
+		_inherits(Item, _React$Component3);
+
+		function Item() {
+			_classCallCheck(this, Item);
+
+			return _possibleConstructorReturn(this, Object.getPrototypeOf(Item).apply(this, arguments));
+		}
+
+		_createClass(Item, [{
+			key: 'render',
+			value: function render() {
+				console.log("item params:");
+				console.log(this.props.params);
+				var _props$params = this.props.params;
+				var category = _props$params.category;
+				var item = _props$params.item;
+
+				console.log(category, item);
+				var menuItem = _data2.default.lookupItem(category, item);
+
+				return _react2.default.createElement(
+					'div',
+					null,
+					_react2.default.createElement(
+						'h1',
+						null,
+						menuItem.name
+					),
+					_react2.default.createElement(
+						'p',
+						null,
+						'$',
+						menuItem.price
+					)
+				);
+			}
+		}]);
+
+		return Item;
+	}(_react2.default.Component);
+
+	var Index = function (_React$Component4) {
+		_inherits(Index, _React$Component4);
+
+		function Index() {
+			_classCallCheck(this, Index);
+
+			return _possibleConstructorReturn(this, Object.getPrototypeOf(Index).apply(this, arguments));
+		}
+
+		_createClass(Index, [{
+			key: 'render',
+			value: function render() {
+				return _react2.default.createElement(
+					'div',
+					null,
+					_react2.default.createElement(
+						'h1',
+						null,
+						'Sidebar'
+					),
+					_react2.default.createElement(
+						'p',
+						null,
+						'Routes can have multiple components, so that all portions of your UI can participate in the routing.'
+					)
+				);
+			}
+		}]);
+
+		return Index;
+	}(_react2.default.Component);
+
+	var IndexSidebar = function (_React$Component5) {
+		_inherits(IndexSidebar, _React$Component5);
+
+		function IndexSidebar() {
+			_classCallCheck(this, IndexSidebar);
+
+			return _possibleConstructorReturn(this, Object.getPrototypeOf(IndexSidebar).apply(this, arguments));
+		}
+
+		_createClass(IndexSidebar, [{
+			key: 'render',
+			value: function render() {
+				return _react2.default.createElement(
+					'div',
+					null,
+					_react2.default.createElement(
+						'h2',
+						null,
+						'Categories'
+					),
+					_react2.default.createElement(
+						'ul',
+						null,
+						_data2.default.getAll().map(function (category, index) {
+							return _react2.default.createElement(
+								'li',
+								{ key: index },
+								_react2.default.createElement(
+									_reactRouter.Link,
+									{ to: '/category/' + category.name },
+									category.name
+								)
+							);
+						})
+					)
+				);
+			}
+		}]);
+
+		return IndexSidebar;
+	}(_react2.default.Component);
+
+	var App = function (_React$Component6) {
+		_inherits(App, _React$Component6);
+
+		function App() {
+			_classCallCheck(this, App);
+
+			return _possibleConstructorReturn(this, Object.getPrototypeOf(App).apply(this, arguments));
+		}
+
+		_createClass(App, [{
+			key: 'render',
+			value: function render() {
+				var _props = this.props;
+				var content = _props.content;
+				var sidebar = _props.sidebar;
+
+				console.log(content, sidebar);
+				return _react2.default.createElement(
+					'div',
+					null,
+					_react2.default.createElement(
+						'div',
+						{ className: 'Sidebar' },
+						sidebar || _react2.default.createElement(IndexSidebar, null)
+					),
+					_react2.default.createElement(
+						'div',
+						{ className: 'Content' },
+						content || _react2.default.createElement(Index, null)
+					)
+				);
+			}
+		}]);
+
+		return App;
+	}(_react2.default.Component);
+
+	(0, _reactDom.render)(_react2.default.createElement(
+		_reactRouter.Router,
+		{ history: _reactRouter.browserHistory },
+		_react2.default.createElement(
+			_reactRouter.Route,
+			{ path: '/', component: App },
+			_react2.default.createElement(
+				_reactRouter.Route,
+				{ path: 'category/:category', components: { content: Category, sidebar: CategorySidebar } },
+				_react2.default.createElement(_reactRouter.Route, { path: ':item', component: Item })
+			)
+		)
+	), document.getElementById('app'));
 
 /***/ },
 /* 2 */
@@ -24124,266 +24279,394 @@
 
 /***/ },
 /* 207 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ function(module, exports) {
 
-	
 	'use strict';
 
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+	var data = [{
+	  name: 'Tacos',
+	  description: 'A taco (/ˈtækoʊ/ or /ˈtɑːkoʊ/) is a traditional Mexican dish composed of a corn or wheat tortilla folded or rolled around a filling. A taco can be made with a variety of fillings, including beef, pork, chicken, seafood, vegetables and cheese, allowing for great versatility and variety. A taco is generally eaten without utensils and is often accompanied by garnishes such as salsa, avocado or guacamole, cilantro (coriander), tomatoes, minced meat, onions and lettuce.',
+	  items: [{ name: 'Carne Asada', price: 7 }, { name: 'Pollo', price: 6 }, { name: 'Carnitas', price: 6 }]
+	}, {
+	  name: 'Burgers',
+	  description: 'A hamburger (also called a beef burger, hamburger sandwich, burger or hamburg) is a sandwich consisting of one or more cooked patties of ground meat, usually beef, placed inside a sliced bun. Hamburgers are often served with lettuce, bacon, tomato, onion, pickles, cheese and condiments such as mustard, mayonnaise, ketchup, relish, and green chile.',
+	  items: [{ name: 'Buffalo Bleu', price: 8 }, { name: 'Bacon', price: 8 }, { name: 'Mushroom and Swiss', price: 6 }]
+	}, {
+	  name: 'Drinks',
+	  description: 'Drinks, or beverages, are liquids intended for human consumption. In addition to basic needs, beverages form part of the culture of human society. Although all beverages, including juice, soft drinks, and carbonated drinks, have some form of water in them, water itself is often not classified as a beverage, and the word beverage has been recurrently defined as not referring to water.',
+	  items: [{ name: 'Lemonade', price: 3 }, { name: 'Root Beer', price: 4 }, { name: 'Iron Port', price: 5 }]
+	}];
 
-	Object.defineProperty(exports, "__esModule", {
-		value: true
-	});
-	exports.Counter = undefined;
+	var dataMap = data.reduce(function (map, category) {
+	  category.itemsMap = category.items.reduce(function (itemsMap, item) {
+	    itemsMap[item.name] = item;
+	    return itemsMap;
+	  }, {});
+	  map[category.name] = category;
+	  return map;
+	}, {});
 
-	var _react = __webpack_require__(2);
+	exports.getAll = function () {
+	  return data;
+	};
 
-	var _react2 = _interopRequireDefault(_react);
+	exports.lookupCategory = function (name) {
+	  return dataMap[name];
+	};
 
-	var _reactDom = __webpack_require__(159);
+	exports.lookupItem = function (category, item) {
+	  return dataMap[category].itemsMap[item];
+	};
 
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+/***/ },
+/* 208 */
+/***/ function(module, exports, __webpack_require__) {
 
-	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+	// style-loader: Adds some css to the DOM by adding a <style> tag
 
-	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+	// load the styles
+	var content = __webpack_require__(209);
+	if(typeof content === 'string') content = [[module.id, content, '']];
+	// add the styles to the DOM
+	var update = __webpack_require__(211)(content, {});
+	if(content.locals) module.exports = content.locals;
+	// Hot Module Replacement
+	if(false) {
+		// When the styles change, update the <style> tags
+		if(!content.locals) {
+			module.hot.accept("!!./../node_modules/css-loader/index.js!./app.css", function() {
+				var newContent = require("!!./../node_modules/css-loader/index.js!./app.css");
+				if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
+				update(newContent);
+			});
+		}
+		// When the module is disposed, remove the <style> tags
+		module.hot.dispose(function() { update(); });
+	}
 
-	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-	// import RaisedButton from 'material-ui/lib/raised-button';
+/***/ },
+/* 209 */
+/***/ function(module, exports, __webpack_require__) {
 
-	var LikeButton = function (_React$Component) {
-		_inherits(LikeButton, _React$Component);
+	exports = module.exports = __webpack_require__(210)();
+	// imports
 
-		function LikeButton() {
-			_classCallCheck(this, LikeButton);
 
-			var _this = _possibleConstructorReturn(this, Object.getPrototypeOf(LikeButton).call(this));
+	// module
+	exports.push([module.id, ".Sidebar {\n  float: left;\n  background: #eee;\n  padding: 20px;\n  margin: 0 20px 20px 20px;\n  width: 200px;\n  cursor: pointer;\n}\n\n.Content {\n  padding: 20px 20px 20px 300px;\n}\n\n.CategoryNav__Toggle:before {\n  display: inline-block;\n  width: 1em;\n  content: '\\25B8';\n}\n\n.CategoryNav__Toggle--is-open:before {\n  content: '\\25BE';\n}\n\na {\n  text-decoration: none;\n}", ""]);
 
-			_this.state = {
-				liked: false
+	// exports
+
+
+/***/ },
+/* 210 */
+/***/ function(module, exports) {
+
+	/*
+		MIT License http://www.opensource.org/licenses/mit-license.php
+		Author Tobias Koppers @sokra
+	*/
+	// css base code, injected by the css-loader
+	module.exports = function() {
+		var list = [];
+
+		// return the list of modules as css string
+		list.toString = function toString() {
+			var result = [];
+			for(var i = 0; i < this.length; i++) {
+				var item = this[i];
+				if(item[2]) {
+					result.push("@media " + item[2] + "{" + item[1] + "}");
+				} else {
+					result.push(item[1]);
+				}
+			}
+			return result.join("");
+		};
+
+		// import a list of modules into the list
+		list.i = function(modules, mediaQuery) {
+			if(typeof modules === "string")
+				modules = [[null, modules, ""]];
+			var alreadyImportedModules = {};
+			for(var i = 0; i < this.length; i++) {
+				var id = this[i][0];
+				if(typeof id === "number")
+					alreadyImportedModules[id] = true;
+			}
+			for(i = 0; i < modules.length; i++) {
+				var item = modules[i];
+				// skip already imported module
+				// this implementation is not 100% perfect for weird media query combinations
+				//  when a module is imported multiple times with different media queries.
+				//  I hope this will never occur (Hey this way we have smaller bundles)
+				if(typeof item[0] !== "number" || !alreadyImportedModules[item[0]]) {
+					if(mediaQuery && !item[2]) {
+						item[2] = mediaQuery;
+					} else if(mediaQuery) {
+						item[2] = "(" + item[2] + ") and (" + mediaQuery + ")";
+					}
+					list.push(item);
+				}
+			}
+		};
+		return list;
+	};
+
+
+/***/ },
+/* 211 */
+/***/ function(module, exports, __webpack_require__) {
+
+	/*
+		MIT License http://www.opensource.org/licenses/mit-license.php
+		Author Tobias Koppers @sokra
+	*/
+	var stylesInDom = {},
+		memoize = function(fn) {
+			var memo;
+			return function () {
+				if (typeof memo === "undefined") memo = fn.apply(this, arguments);
+				return memo;
 			};
-			return _this;
+		},
+		isOldIE = memoize(function() {
+			return /msie [6-9]\b/.test(window.navigator.userAgent.toLowerCase());
+		}),
+		getHeadElement = memoize(function () {
+			return document.head || document.getElementsByTagName("head")[0];
+		}),
+		singletonElement = null,
+		singletonCounter = 0,
+		styleElementsInsertedAtTop = [];
+
+	module.exports = function(list, options) {
+		if(false) {
+			if(typeof document !== "object") throw new Error("The style-loader cannot be used in a non-browser environment");
 		}
 
-		_createClass(LikeButton, [{
-			key: 'handleClick',
-			value: function handleClick() {
-				this.setState({ liked: !this.state.liked });
+		options = options || {};
+		// Force single-tag solution on IE6-9, which has a hard limit on the # of <style>
+		// tags it will allow on a page
+		if (typeof options.singleton === "undefined") options.singleton = isOldIE();
+
+		// By default, add <style> tags to the bottom of <head>.
+		if (typeof options.insertAt === "undefined") options.insertAt = "bottom";
+
+		var styles = listToStyles(list);
+		addStylesToDom(styles, options);
+
+		return function update(newList) {
+			var mayRemove = [];
+			for(var i = 0; i < styles.length; i++) {
+				var item = styles[i];
+				var domStyle = stylesInDom[item.id];
+				domStyle.refs--;
+				mayRemove.push(domStyle);
 			}
-		}, {
-			key: 'render',
-			value: function render() {
-				var _this2 = this;
-
-				var text = this.state.liked ? 'like' : 'haven\'t liked';
-
-				return(
-					// <p onClick={ this.handleClick.bind(this)}>
-					_react2.default.createElement(
-						'p',
-						{ onClick: function onClick() {
-								return _this2.handleClick();
-							} },
-						'You ',
-						text,
-						' this. Click to toggle.'
-					)
-				);
+			if(newList) {
+				var newStyles = listToStyles(newList);
+				addStylesToDom(newStyles, options);
 			}
-		}]);
+			for(var i = 0; i < mayRemove.length; i++) {
+				var domStyle = mayRemove[i];
+				if(domStyle.refs === 0) {
+					for(var j = 0; j < domStyle.parts.length; j++)
+						domStyle.parts[j]();
+					delete stylesInDom[domStyle.id];
+				}
+			}
+		};
+	}
 
-		return LikeButton;
-	}(_react2.default.Component);
+	function addStylesToDom(styles, options) {
+		for(var i = 0; i < styles.length; i++) {
+			var item = styles[i];
+			var domStyle = stylesInDom[item.id];
+			if(domStyle) {
+				domStyle.refs++;
+				for(var j = 0; j < domStyle.parts.length; j++) {
+					domStyle.parts[j](item.parts[j]);
+				}
+				for(; j < item.parts.length; j++) {
+					domStyle.parts.push(addStyle(item.parts[j], options));
+				}
+			} else {
+				var parts = [];
+				for(var j = 0; j < item.parts.length; j++) {
+					parts.push(addStyle(item.parts[j], options));
+				}
+				stylesInDom[item.id] = {id: item.id, refs: 1, parts: parts};
+			}
+		}
+	}
 
-	// export default LikeButton;
-	//-----------------------------//
+	function listToStyles(list) {
+		var styles = [];
+		var newStyles = {};
+		for(var i = 0; i < list.length; i++) {
+			var item = list[i];
+			var id = item[0];
+			var css = item[1];
+			var media = item[2];
+			var sourceMap = item[3];
+			var part = {css: css, media: media, sourceMap: sourceMap};
+			if(!newStyles[id])
+				styles.push(newStyles[id] = {id: id, parts: [part]});
+			else
+				newStyles[id].parts.push(part);
+		}
+		return styles;
+	}
 
-	var Avatar = function (_React$Component2) {
-		_inherits(Avatar, _React$Component2);
+	function insertStyleElement(options, styleElement) {
+		var head = getHeadElement();
+		var lastStyleElementInsertedAtTop = styleElementsInsertedAtTop[styleElementsInsertedAtTop.length - 1];
+		if (options.insertAt === "top") {
+			if(!lastStyleElementInsertedAtTop) {
+				head.insertBefore(styleElement, head.firstChild);
+			} else if(lastStyleElementInsertedAtTop.nextSibling) {
+				head.insertBefore(styleElement, lastStyleElementInsertedAtTop.nextSibling);
+			} else {
+				head.appendChild(styleElement);
+			}
+			styleElementsInsertedAtTop.push(styleElement);
+		} else if (options.insertAt === "bottom") {
+			head.appendChild(styleElement);
+		} else {
+			throw new Error("Invalid value for parameter 'insertAt'. Must be 'top' or 'bottom'.");
+		}
+	}
 
-		function Avatar() {
-			_classCallCheck(this, Avatar);
+	function removeStyleElement(styleElement) {
+		styleElement.parentNode.removeChild(styleElement);
+		var idx = styleElementsInsertedAtTop.indexOf(styleElement);
+		if(idx >= 0) {
+			styleElementsInsertedAtTop.splice(idx, 1);
+		}
+	}
 
-			return _possibleConstructorReturn(this, Object.getPrototypeOf(Avatar).call(this));
+	function createStyleElement(options) {
+		var styleElement = document.createElement("style");
+		styleElement.type = "text/css";
+		insertStyleElement(options, styleElement);
+		return styleElement;
+	}
+
+	function createLinkElement(options) {
+		var linkElement = document.createElement("link");
+		linkElement.rel = "stylesheet";
+		insertStyleElement(options, linkElement);
+		return linkElement;
+	}
+
+	function addStyle(obj, options) {
+		var styleElement, update, remove;
+
+		if (options.singleton) {
+			var styleIndex = singletonCounter++;
+			styleElement = singletonElement || (singletonElement = createStyleElement(options));
+			update = applyToSingletonTag.bind(null, styleElement, styleIndex, false);
+			remove = applyToSingletonTag.bind(null, styleElement, styleIndex, true);
+		} else if(obj.sourceMap &&
+			typeof URL === "function" &&
+			typeof URL.createObjectURL === "function" &&
+			typeof URL.revokeObjectURL === "function" &&
+			typeof Blob === "function" &&
+			typeof btoa === "function") {
+			styleElement = createLinkElement(options);
+			update = updateLink.bind(null, styleElement);
+			remove = function() {
+				removeStyleElement(styleElement);
+				if(styleElement.href)
+					URL.revokeObjectURL(styleElement.href);
+			};
+		} else {
+			styleElement = createStyleElement(options);
+			update = applyToTag.bind(null, styleElement);
+			remove = function() {
+				removeStyleElement(styleElement);
+			};
 		}
 
-		_createClass(Avatar, [{
-			key: 'render',
-			value: function render() {
-				return _react2.default.createElement(
-					'div',
-					null,
-					_react2.default.createElement(ProfilePic, { username: this.props.username }),
-					_react2.default.createElement(ProfileLink, { username: this.props.username })
-				);
+		update(obj);
+
+		return function updateStyle(newObj) {
+			if(newObj) {
+				if(newObj.css === obj.css && newObj.media === obj.media && newObj.sourceMap === obj.sourceMap)
+					return;
+				update(obj = newObj);
+			} else {
+				remove();
 			}
-		}]);
+		};
+	}
 
-		return Avatar;
-	}(_react2.default.Component);
+	var replaceText = (function () {
+		var textStore = [];
 
-	var ProfilePic = function (_React$Component3) {
-		_inherits(ProfilePic, _React$Component3);
+		return function (index, replacement) {
+			textStore[index] = replacement;
+			return textStore.filter(Boolean).join('\n');
+		};
+	})();
 
-		function ProfilePic() {
-			_classCallCheck(this, ProfilePic);
+	function applyToSingletonTag(styleElement, index, remove, obj) {
+		var css = remove ? "" : obj.css;
 
-			return _possibleConstructorReturn(this, Object.getPrototypeOf(ProfilePic).call(this));
+		if (styleElement.styleSheet) {
+			styleElement.styleSheet.cssText = replaceText(index, css);
+		} else {
+			var cssNode = document.createTextNode(css);
+			var childNodes = styleElement.childNodes;
+			if (childNodes[index]) styleElement.removeChild(childNodes[index]);
+			if (childNodes.length) {
+				styleElement.insertBefore(cssNode, childNodes[index]);
+			} else {
+				styleElement.appendChild(cssNode);
+			}
+		}
+	}
+
+	function applyToTag(styleElement, obj) {
+		var css = obj.css;
+		var media = obj.media;
+		var sourceMap = obj.sourceMap;
+
+		if(media) {
+			styleElement.setAttribute("media", media)
 		}
 
-		_createClass(ProfilePic, [{
-			key: 'render',
-			value: function render() {
-				return _react2.default.createElement('img', { src: 'https://graph.facebook.com/' + this.props.username + '/picture' });
+		if(styleElement.styleSheet) {
+			styleElement.styleSheet.cssText = css;
+		} else {
+			while(styleElement.firstChild) {
+				styleElement.removeChild(styleElement.firstChild);
 			}
-		}]);
+			styleElement.appendChild(document.createTextNode(css));
+		}
+	}
 
-		return ProfilePic;
-	}(_react2.default.Component);
+	function updateLink(linkElement, obj) {
+		var css = obj.css;
+		var media = obj.media;
+		var sourceMap = obj.sourceMap;
 
-	var ProfileLink = function (_React$Component4) {
-		_inherits(ProfileLink, _React$Component4);
-
-		function ProfileLink() {
-			_classCallCheck(this, ProfileLink);
-
-			return _possibleConstructorReturn(this, Object.getPrototypeOf(ProfileLink).call(this));
+		if(sourceMap) {
+			// http://stackoverflow.com/a/26603875
+			css += "\n/*# sourceMappingURL=data:application/json;base64," + btoa(unescape(encodeURIComponent(JSON.stringify(sourceMap)))) + " */";
 		}
 
-		_createClass(ProfileLink, [{
-			key: 'render',
-			value: function render() {
-				return _react2.default.createElement(
-					'a',
-					{ href: 'https://www.facebook.com/' + this.props.username },
-					this.props.username
-				);
-			}
-		}]);
+		var blob = new Blob([css], { type: "text/css" });
 
-		return ProfileLink;
-	}(_react2.default.Component);
+		var oldSrc = linkElement.href;
 
-	// export default Avatar;
+		linkElement.href = URL.createObjectURL(blob);
 
-	var MyComponent = function (_React$Component5) {
-		_inherits(MyComponent, _React$Component5);
+		if(oldSrc)
+			URL.revokeObjectURL(oldSrc);
+	}
 
-		function MyComponent() {
-			_classCallCheck(this, MyComponent);
-
-			return _possibleConstructorReturn(this, Object.getPrototypeOf(MyComponent).call(this));
-		}
-
-		_createClass(MyComponent, [{
-			key: 'handleClick',
-			value: function handleClick() {
-				// Explicitly focus the text input using the raw DOM API.
-				this.myTextInput.focus();
-			}
-		}, {
-			key: 'render',
-			value: function render() {
-				var _this7 = this;
-
-				// The ref attribute adds a reference to the component to
-				// this.refs when the component is mounted.
-				return _react2.default.createElement(
-					'div',
-					null,
-					_react2.default.createElement('input', { type: 'text', ref: function ref(_ref) {
-							return _this7.myTextInput = _ref;
-						} }),
-					_react2.default.createElement('input', {
-						type: 'button',
-						value: 'Focus the text input',
-						onClick: function onClick() {
-							return _this7.handleClick();
-						} })
-				);
-			}
-		}]);
-
-		return MyComponent;
-	}(_react2.default.Component);
-
-	// ReactDOM.render(
-	// 	<LikeButton />,
-	// 	document.getElementById('example')
-	// );
-
-	// const MyAwesomeReactComponent = () => (
-	//   <RaisedButton label="Default" />
-	// <LikeButton />
-	// );
-
-	// export default MyComponent;
-
-	var Counter = exports.Counter = function (_React$Component6) {
-		_inherits(Counter, _React$Component6);
-
-		function Counter(props) {
-			_classCallCheck(this, Counter);
-
-			var _this8 = _possibleConstructorReturn(this, Object.getPrototypeOf(Counter).call(this, props));
-
-			_this8.state = { count: props.initialCount };
-			return _this8;
-		}
-
-		_createClass(Counter, [{
-			key: 'componentWillMount',
-			value: function componentWillMount() {
-				console.log('will Mount ' + new Date().getTime());
-			}
-		}, {
-			key: 'componentDidMount',
-			value: function componentDidMount() {
-				console.log('did Mount ' + new Date().getTime());
-			}
-		}, {
-			key: 'componentWillReceiveProps',
-			value: function componentWillReceiveProps() {
-				console.log('componentWillReceiveProps ' + new Date().getTime());
-			}
-		}, {
-			key: 'shouldComponentUpdate',
-			value: function shouldComponentUpdate(nextProps, nextState) {
-				console.log('shouldComponentUpdate ' + new Date().getTime());
-				console.log(nextProps, this.props);
-				console.log(nextProps.id !== this.props.id);
-				// return nextProps.id !== this.props.id;
-				return true;
-			}
-		}, {
-			key: 'componentWillUnmount',
-			value: function componentWillUnmount() {
-				console.log('componentWillUnmount ' + new Date().getTime());
-			}
-		}, {
-			key: 'tick',
-			value: function tick() {
-				this.setState({ count: this.state.count + 1 });
-			}
-		}, {
-			key: 'render',
-			value: function render() {
-				return _react2.default.createElement(
-					'div',
-					{ onClick: this.tick.bind(this) },
-					'Clicks: ',
-					this.state.count
-				);
-			}
-		}]);
-
-		return Counter;
-	}(_react2.default.Component);
-
-	Counter.propTypes = { initialCount: _react2.default.PropTypes.number };
-	Counter.defaultProps = { initialCount: 0 };
-
-	exports.default = Counter;
 
 /***/ }
 /******/ ]);
