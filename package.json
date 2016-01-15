@@ -9,6 +9,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "flux": "^2.1.1",
     "history": "^1.17.0",
     "material-ui": "^0.14.2",
     "react": "^0.14.6",

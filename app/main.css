@@ -46,27 +46,38 @@ nav div {
   width: 80%;
 }
 
-nav a {
+nav a, .header-nav a {
 	position: relative;
-	font-size: 1.2em;
+	font-size: 1em;
 	color: #fff;
 	height: inherit;
 	padding: 0 20px;
 }
 
 
-nav a:before {
+nav a:before, .header-nav a:before {
 	content: "";
-    position: absolute;
-    left: 0;
-    bottom: 0;
-    width: 0;
-    height: 5px;
-    background-color: #fff;
-  	transition: width 0.3s;
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 0;
+  height: 5px;
+  background-color: #fff;
+	transition: width 0.3s;
 }
 
-nav a.animate:before{
+.header-nav a {
+  font-size: 1em;
+}
+
+.header-nav a:before { 
+  height: 2px;
+}
+.header-as {
+  height: 40px;
+}
+
+nav a.animate:before, .header-nav a.animate:before {
 	width: 100%;
 }
 
@@ -175,19 +186,23 @@ footer {
 
 .example-enter {
   opacity: 0.01;
+  transform: translateY(100px);
 }
 
 .example-enter.example-enter-active {
   opacity: 1;
-  transition: all 500ms ease-in;
+  transform: translateY(0);
+  transition: all 300ms ease-in;
 }
 
 .example-leave {
   opacity: 1;
+  transform: translateY(0);
 }
 
 .example-leave.example-leave-active {
   opacity: 0.01;
-  transition: all 300ms ease-in;
+  transform: translateY(100px);
+  transition: all 500ms ease-in;
 }
 

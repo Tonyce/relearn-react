@@ -3,8 +3,9 @@
 
 import React from 'react';
 import {render} from 'react-dom';
+import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
 
-class Header extends React.Component {
+class Item extends React.Component {
 
 	constructor() {
 		super();
@@ -12,11 +13,12 @@ class Header extends React.Component {
 
 	render() {
 		return (
+
 			<div>
-				<h2>About</h2>
+				i am Item
 			</div>
 		);
 	}
 }
 
-export default Header
+export default Item

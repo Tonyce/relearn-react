@@ -3,31 +3,46 @@
 
 import React from 'react';
 import {render} from 'react-dom';
+import Card from '../Card';
+
+import mainStore from '../../stores/mainStore';
+import mainAction from '../../actions/mainAction';
+ 
 
 class Main extends React.Component {
 
-	constructor() {
-		super();
-	}
-
-	componentWillMount() {
-		console.log(`about will Mount ${new Date().getTime()}`)
+	constructor(props) {
+		super(props);
+		this._onChange = this._onChange.bind(this);
+		this.state = {
+			card: ""
+		}
+		// console.log("about card")
 	}
 
 	componentDidMount() {
-		console.log(`about did Mount ${new Date().getTime()}`)
+		// console.log("about didMount")
+		mainStore.addChangeListener( this._onChange );
+    	mainAction.loadData("data/aboutmain.json", "GET", "");
 	}
 
-	componentWillUnmount () {
-		console.log(`about componentWillUnmount ${new Date().getTime()}`)		
+	componentWillUnmount() {
+		// console.log("about WillUnmount")
+	    mainStore.removeChangeListener( this._onChange );
+	}
+
+	_onChange() {
+		this.setState({ 
+			card: mainStore.getMainData()
+		}); 
 	}
 
 	render() {
 		return (
 			<div>
-				<div className="card">
-					<h1>i am about main</h1>
-				</div>
+				<Card>
+					{this.state.card}
+				</Card>
 
 				<div id="main-content" className="flex-layout row">
 					<div className="left">

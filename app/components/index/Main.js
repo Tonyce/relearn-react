@@ -3,30 +3,49 @@
 
 import React from 'react';
 import {render} from 'react-dom';
-import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
+import Card from '../Card';
+
+import mainStore from '../../stores/mainStore';
+import mainAction from '../../actions/mainAction';
 
 class Main extends React.Component {
 
-	constructor() {
-		super();
+	constructor(props) {
+		super(props);
+		this._onChange = this._onChange.bind(this);
+		this.state = {
+			card: ""
+		}
+		// console.log("about card")
 	}
 
-	componentWillUnmount () {
-		console.log(`componentWillUnmount ${new Date().getTime()}`)		
+	componentDidMount() {
+		// console.log("about didMount")
+		mainStore.addChangeListener( this._onChange );
+    	mainAction.loadData("data/indexmain.json", "GET", "");
+	}
+
+	componentWillUnmount() {
+		// console.log("about WillUnmount")
+	    mainStore.removeChangeListener( this._onChange );
+	}
+
+	_onChange() {
+		this.setState({ 
+			card: mainStore.getMainData()
+		}); 
 	}
 	
 	render() {
 		return (
 			<div>
-				<ReactCSSTransitionGroup transitionName="example" transitionEnterTimeout={500} transitionLeaveTimeout={300}>
-				<div className="card">
-					<h1>i am index Main</h1>
-				</div>
+				<Card>
+					{this.state.card}
+				</Card>
 
 				<div id="main-content">
 					fasdfa
 				</div>
-				</ReactCSSTransitionGroup>
 			</div>
 		);
 	}
