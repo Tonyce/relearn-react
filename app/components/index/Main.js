@@ -14,9 +14,8 @@ class Main extends React.Component {
 		super(props);
 		this._onChange = this._onChange.bind(this);
 		this.state = {
-			card: ""
+			card: "card"
 		}
-		// console.log("about card")
 	}
 
 	componentDidMount() {
@@ -31,8 +30,10 @@ class Main extends React.Component {
 	}
 
 	_onChange() {
+		let cardContent = mainStore.getMainData();
+		console.log(cardContent);
 		this.setState({ 
-			card: mainStore.getMainData()
+			card: cardContent
 		}); 
 	}
 	
@@ -44,7 +45,6 @@ class Main extends React.Component {
 				</Card>
 
 				<div id="main-content">
-					fasdfa
 				</div>
 			</div>
 		);

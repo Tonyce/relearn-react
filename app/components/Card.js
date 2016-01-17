@@ -8,28 +8,32 @@ class Card extends React.Component {
 
 	constructor() {
 		super();
+		this.state = {
+			content: "",
+			other: "",
+		}
 	}
 
-	// componentDidMount() {
-	// // 	console.log(`about did Mount ${new Date().getTime()}`)
-	// 	console.log(this.props.path)
-	// }
-
-	// componentWillReceiveProps(nextProps) {
- //        console.log(`componentWillReceiveProps ${nextProps.path}`)    
- //    }
-
-	// shouldComponentUpdate(nextProps, nextState) {
- //        // console.log(`shouldComponentUpdate ${new Date().getTime()}`)    
- //        // console.log(nextProps, this.props)
- //        return nextProps.path !== this.props.path
- //    }
+	componentWillReceiveProps (nextProps) {
+		let cardContent = nextProps.children;
+		cardContent = JSON.parse(cardContent);
+		this.setState({
+			content: cardContent.content,
+			other: cardContent.other
+		})
+    }
 
 	render() {
 		// console.log(this.props.path)
 		return (
-			<div className="card">
-				<h1>i am  {this.props.children} Card</h1>
+			<div className="card flex-layout column v-between">
+				<div className="flex-layout column v-center" 
+					dangerouslySetInnerHTML={{
+            			__html: this.state.content
+          		}} />
+				<div className="other flex-layout h-center">
+					<a>{this.state.other}</a>
+				</div>
 			</div>
 		);
 	}

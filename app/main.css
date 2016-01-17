@@ -21,13 +21,35 @@ a.active {
 
 
 header {
+  overflow: hidden;
+  position: relative;
 	width: 100%;
 	height: 400px;
 	margin-bottom: -100px;
 	background-color: #00BCD4;
+  /*607D8B*/
+}
+
+.circle {
+  position: absolute;
+  background-color: #607D8B;
+  width: 0px;
+  height: 0px;
+  margin-left: 0;
+  margin-top: 0;
+  border-radius: 50%;
+  webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+}
+
+img {
+  width: 100%;
 }
 
 nav {
+  position: relative;
+  z-index: 100;
 	padding: 0 10px;
 	color: #fff;
 	width: auto;
@@ -40,10 +62,14 @@ nav div {
 }
 
 .header-nav {
-  margin: 0 auto 130px auto;
+  position: relative;
+  z-index: 100;
+  margin: 160px auto 0 auto;
   color: #ffffff;
   font-weight: 100;
-  width: 80%;
+  width: 70%;
+  /*opacity: 0.0;*/
+  /*transition: all 0.5s linear;*/
 }
 
 nav a, .header-nav a {
@@ -125,6 +151,11 @@ nav a.animate:before, .header-nav a.animate:before {
     align-items: center;
 }
 
+.flex-end {
+    -webkit-justify-content: flex-end;
+    justify-content: flex-end; 
+}
+
 #main {
 	width: 100%;
 }
@@ -135,7 +166,7 @@ nav a.animate:before, .header-nav a.animate:before {
 
 #main-content {
 	width: inherit;
-	height: 500px;
+	min-height: 500px;
 	margin-top: -100px;
 	background: rgba(0, 0, 0, 0.4);
 	/*border: solid 1px red;*/
@@ -146,9 +177,17 @@ nav a.animate:before, .header-nav a.animate:before {
   flex-grow:7;
 }
 
+.left img {
+  height: 100%;
+}
+
 .right {
   flex-grow:3;
   background-color: yellow;
+}
+
+.right img {
+  height: 50%;
 }
 
 .right>div {
@@ -160,7 +199,7 @@ nav a.animate:before, .header-nav a.animate:before {
 }
 
 .schedule {
-  width: 80%;
+  width: 70%;
   height: 500px;
   margin: 20px auto;
   background-color: #fff;
@@ -168,21 +207,64 @@ nav a.animate:before, .header-nav a.animate:before {
 }
 
 .card {
+  /*padding: 10px 20px;*/
 	position: relative;
 	z-index: 100;
-	width: 80%;
+	width: 70%;
 	margin: 0 auto;
 	min-height: 200px;
 	background-color: #fff;
 	box-shadow: 0px 2px 5px 0px rgba(0,0,0,0.16),0px 2px 5px 0px rgba(0,0,0,0.23);
 }
 
+.card>div {
+  margin: 10px 20px;
+  flex-grow:1;
+}
+
+.card h1, .card h2, .card h3 {
+  margin: 0 0 10px 0;
+  color: #757575;
+}
+
+.card .other {
+  border-top: solid 1px #E0E0E0;
+  /*position: relative;*/
+  height: 60px;
+  flex-grow:0;
+}
+
 footer {
 	width: 100%;
 	height: 200px;
 	background-color: #fff;
+  padding-bottom: 20px;
 }
 
+footer h2 {
+  color: gray;
+}
+
+footer a:hover {
+  cursor: pointer;
+}
+
+footer div:nth-child(1) {
+  height: 40px;
+  margin-right: 30px;
+}
+
+#foot-info {
+  padding-right: 20px;
+  border-bottom: solid 1px #E0E0E0;
+  margin: 10px 0;
+  height: 30px;
+}
+
+#foot-info a {
+  margin: 0 20px;
+
+}
 
 .example-enter {
   opacity: 0.01;
