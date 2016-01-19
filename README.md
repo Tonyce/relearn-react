@@ -11,3 +11,5 @@ npm install
 webpack
 
 open index.html
+
+该项目现已到[Fuck-Experience-WEB](https://github.com/Tonyce/Fuck-Experience-WEB), Fuck-Experience-WEB 计划是一个比较小项目 会持续更新
